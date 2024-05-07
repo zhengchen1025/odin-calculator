@@ -1,17 +1,17 @@
 function add(a, b) {
-  return a + b;
+  result = a + b;
 }
 
 function subtract(a, b) {
-  return a - b;
+  result = a - b;
 }
 
 function multiply(a, b) {
-  return a * b;
+  result = a * b;
 }
 
 function divide(a, b) {
-  return a / b;
+  result = a / b;
 }
 
 const num1 = document.getElementById("1");
@@ -51,33 +51,88 @@ operMultiply.addEventListener("click", inputOper);
 operDivide.addEventListener("click", inputOper);
 operEquals.addEventListener("click", getResult);
 
+let firstNum = 1;
+let secondNum = 1;
+let result = 1;
+let calSymbol = "";
+
 function inputNum(e) {
   console.log(e);
   inputTextBig.textContent += e.target.id;
 }
 
+function saveFirstNum() {
+  firstNum = parseInt(inputTextBig.textContent);
+  console.log(`firstNum: ${firstNum}`);
+}
+
+function saveSecondNum() {
+  secondNum = parseInt(inputTextBig.textContent);
+  console.log(`secondNum: ${secondNum}`);
+}
+
+function saveCalSymbol() {
+  calSymbol = inputTextBig.textContent;
+  console.log(calSymbol);
+}
+
+function calulate() {
+  return firstNum - secondNum;
+}
+
 function inputOper(e) {
   switch (e.target.id) {
     case "add":
-      inputTextBig.textContent += "+";
+      saveFirstNum();
       console.log(inputTextBig.textContent);
+      inputTextBig.textContent = "+";
+      saveCalSymbol();
+
       break;
     case "subtract":
-      inputTextBig.textContent += "-";
+      saveFirstNum();
       console.log(inputTextBig.textContent);
+      inputTextBig.textContent = "-";
+      saveCalSymbol();
+
       break;
     case "multiply":
-      inputTextBig.textContent += "*";
+      saveFirstNum();
       console.log(inputTextBig.textContent);
+      inputTextBig.textContent = "*";
+      saveCalSymbol();
+
       break;
     case "divide":
-      inputTextBig.textContent += "/";
+      saveFirstNum();
       console.log(inputTextBig.textContent);
+      inputTextBig.textContent = "/";
+      saveCalSymbol();
+
       break;
   }
 }
 
 function getResult() {
-  console.log(typeof inputTextBig.textContent);
-  
+  saveSecondNum();
+  console.log(`${firstNum} ${calSymbol} ${secondNum}`);
+  console.log(typeof firstNum);
+
+  switch (calSymbol) {
+    case "+":
+      add(firstNum, secondNum);
+      break;
+    case "-":
+      subtract(firstNum, secondNum);
+      break;
+    case "*":
+      multiply(firstNum, secondNum);
+      break;
+    case "/":
+      divide(firstNum, secondNum);
+      break;
+  }
+
+  console.log(result);
+  inputTextBig.textContent = result;
 }
