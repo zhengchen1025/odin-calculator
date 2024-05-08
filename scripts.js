@@ -30,9 +30,9 @@ const operSubtract = document.getElementById("subtract");
 const operMultiply = document.getElementById("multiply");
 const operDivide = document.getElementById("divide");
 const operEquals = document.getElementById("equals");
+const operClear = document.getElementById("clear");
 
 const inputText = document.getElementById("inputText");
-const inputTextSmall = document.getElementById("inputTextSmall");
 
 num1.addEventListener("click", inputNum);
 num2.addEventListener("click", inputNum);
@@ -50,10 +50,11 @@ operSubtract.addEventListener("click", inputOper);
 operMultiply.addEventListener("click", inputOper);
 operDivide.addEventListener("click", inputOper);
 operEquals.addEventListener("click", getResult);
+operClear.addEventListener("click", allClear);
 
-let firstNum = 1;
-let secondNum = 1;
-let result = 1;
+let firstNum = null;
+let secondNum = null;
+let result = null;
 let calSymbol = "";
 
 function inputNum(e) {
@@ -76,8 +77,8 @@ function saveCalSymbol() {
   console.log(calSymbol);
 }
 
-function calulate() {
-  return firstNum - secondNum;
+function allClear() {
+  inputText.textContent = "";
 }
 
 function inputOper(e) {
