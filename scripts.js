@@ -100,14 +100,14 @@ function inputOper(e) {
     case "multiply":
       saveFirstNum();
       console.log(inputText.textContent);
-      inputText.textContent = "*";
+      inputText.textContent = "x";
       saveCalSymbol();
 
       break;
     case "divide":
       saveFirstNum();
       console.log(inputText.textContent);
-      inputText.textContent = "/";
+      inputText.textContent = "%";
       saveCalSymbol();
 
       break;
@@ -126,10 +126,10 @@ function getResult() {
     case "-":
       subtract(firstNum, secondNum);
       break;
-    case "*":
+    case "x":
       multiply(firstNum, secondNum);
       break;
-    case "/":
+    case "%":
       divide(firstNum, secondNum);
       break;
   }
