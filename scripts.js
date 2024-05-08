@@ -31,7 +31,7 @@ const operMultiply = document.getElementById("multiply");
 const operDivide = document.getElementById("divide");
 const operEquals = document.getElementById("equals");
 
-const inputTextBig = document.getElementById("inputTextBig");
+const inputText = document.getElementById("inputText");
 const inputTextSmall = document.getElementById("inputTextSmall");
 
 num1.addEventListener("click", inputNum);
@@ -58,21 +58,21 @@ let calSymbol = "";
 
 function inputNum(e) {
   console.log(e);
-  inputTextBig.textContent += e.target.id;
+  inputText.textContent += e.target.id;
 }
 
 function saveFirstNum() {
-  firstNum = parseInt(inputTextBig.textContent);
+  firstNum = parseInt(inputText.textContent);
   console.log(`firstNum: ${firstNum}`);
 }
 
 function saveSecondNum() {
-  secondNum = parseInt(inputTextBig.textContent);
+  secondNum = parseInt(inputText.textContent);
   console.log(`secondNum: ${secondNum}`);
 }
 
 function saveCalSymbol() {
-  calSymbol = inputTextBig.textContent;
+  calSymbol = inputText.textContent;
   console.log(calSymbol);
 }
 
@@ -84,29 +84,29 @@ function inputOper(e) {
   switch (e.target.id) {
     case "add":
       saveFirstNum();
-      console.log(inputTextBig.textContent);
-      inputTextBig.textContent = "+";
+      console.log(inputText.textContent);
+      inputText.textContent = "+";
       saveCalSymbol();
 
       break;
     case "subtract":
       saveFirstNum();
-      console.log(inputTextBig.textContent);
-      inputTextBig.textContent = "-";
+      console.log(inputText.textContent);
+      inputText.textContent = "-";
       saveCalSymbol();
 
       break;
     case "multiply":
       saveFirstNum();
-      console.log(inputTextBig.textContent);
-      inputTextBig.textContent = "*";
+      console.log(inputText.textContent);
+      inputText.textContent = "*";
       saveCalSymbol();
 
       break;
     case "divide":
       saveFirstNum();
-      console.log(inputTextBig.textContent);
-      inputTextBig.textContent = "/";
+      console.log(inputText.textContent);
+      inputText.textContent = "/";
       saveCalSymbol();
 
       break;
@@ -134,5 +134,5 @@ function getResult() {
   }
 
   console.log(result);
-  inputTextBig.textContent = result;
+  inputText.textContent = result;
 }
